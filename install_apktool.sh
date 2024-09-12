@@ -24,7 +24,7 @@ curl -o "$APK_NAME" "$APK_URL"
 
 # Decompile the APK
 echo "Decompiling APK..."
-apktool d "$APK_NAME" -o decompiled_apk
+apktool.jar d "$APK_NAME" -o decompiled_apk
 
 # Modify minsdkVersion in apktool.yml
 echo "Modifying minsdkVersion in apktool.yml..."
@@ -32,7 +32,7 @@ sed -i 's/minSdkVersion: .*/minSdkVersion: 23/' decompiled_apk/apktool.yml
 
 # Recompile the APK
 echo "Recompiling APK..."
-apktool b decompiled_apk -o recompiled.apk
+apktool.jar b decompiled_apk -o recompiled.apk
 
 # Output the recompiled APK as an artifact
 echo "Recompiled APK is ready: recompiled.apk"
