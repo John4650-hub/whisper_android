@@ -3,7 +3,7 @@ name: Build Android Project
 on:
   push:
     branches:
-      - main  # Change this to your default branch if different
+      - master  # Change this to your default branch if different
 
 jobs:
   build:
