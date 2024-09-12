@@ -22,7 +22,7 @@ android {
 
         // Specify the ABIs to exclude
         ndk {
-            abiFilters 'armeabi-v7'
+            abiFilters 'armeabi-v7a'
         }
     }
 
