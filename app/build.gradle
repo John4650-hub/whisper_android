@@ -9,12 +9,12 @@ android {
         }
     }
     namespace 'com.whispertflite'
-    compileSdk 30
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.whispertflite"
-        minSdk 23
-        targetSdk 30
+        minSdk 21
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
