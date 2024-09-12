@@ -31,6 +31,11 @@ apktool d "$APK_NAME" -o decompiled_apk
 echo "Modifying minsdkVersion in apktool.yml..."
 sed -i 's/minSdkVersion: .*/minSdkVersion: 23/' decompiled_apk/apktool.yml
 
+# Remove adaptive icon references
+echo "Removing adaptive icons..."
+rm -f decompiled_apk/res/mipmap-anydpi/ic_launcher.xml
+rm -f decompiled_apk/res/mipmap-anydpi/ic_launcher_round.xml
+
 # Recompile the APK
 echo "Recompiling APK..."
 apktool b decompiled_apk -o recompiled.apk
