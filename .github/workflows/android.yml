@@ -27,7 +27,7 @@ jobs:
           ./install_apktool.sh "${{ github.event.inputs.apk_url }}"
 
       - name: Upload Recompiled APK
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: recompiled-apk
           path: recompiled.apk
