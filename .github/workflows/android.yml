@@ -1,13 +1,9 @@
 name: Build and Decompile APK
 
 on:
-  workflow_dispatch:
-    inputs:
-      apk_url:
-        description: 'URL of the APK file to download'
-        required: true
-        default: 'https://github.com/John4650-hub/whisper_android/raw/master/release/WhisperASR.apk'
-
+  push:
+    branches: 
+      - Master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,7 +20,7 @@ jobs:
       - name: Run Bash Script
         run: |
           chmod +x ./install_apktool.sh
-          ./install_apktool.sh "${{ github.event.inputs.apk_url }}"
+          ./install_apktool.sh "https://raw.githubusercontent.com/John4650-hub/whisper_android/master/release/WhisperASR.apk"
 
       - name: Upload Recompiled APK
         uses: actions/upload-artifact@v4
