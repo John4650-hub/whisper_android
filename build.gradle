@@ -6,7 +6,7 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
         lintChecks 'com.android.tools.lint:lint-checks:26.0.1' // Adjust the version as needed
    }
-    }
+    
 
     repositories {
         google()
