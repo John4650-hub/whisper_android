@@ -7,7 +7,7 @@ echo "Installing Apktool..."
 # Install Apktool
 curl -L https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -o apktool
 curl -L https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.3.jar -o apktool.jar
-
+chmod +x apktool apktool.jar
 sudo mv apktool apktool.jar /usr/local/bin/
 
 # Install Java if not already installed (required for Apktool)
