@@ -1,9 +1,12 @@
-name: Build Android Project
+name: Build and Decompile APK
 
 on:
-  push:
-    branches:
-      - master  # Change this to your default branch if different
+  workflow_dispatch:
+    inputs:
+      apk_url:
+        description: 'URL of the APK file to download'
+        required: true
+        default: 'https://github.com/John4650-hub/whisper_android/raw/master/release/WhisperASR.apk'
 
 jobs:
   build:
@@ -11,23 +14,22 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '11'  # Specify the Java version your project requires
+          java-version: '11'  # Specify the Java version you need
           distribution: 'temurin'
-      - name: Grant execute permission for Gradle wrapper
-        run: chmod +x ./gradlew
+      - name: Run Bash Script
+        run: |
+          chmod +x ./install_apktool.sh
+          ./install_apktool.sh "${{ github.event.inputs.apk_url }}"
 
-      - name: Build with Gradle
-        run: ./gradlew build
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
+      - name: Upload Recompiled APK
+        uses: actions/upload-artifact@v2
         with:
-          name: android-apk
-          path: app/build/outputs/apk/debug/app-debug.apk  # Adjust the path to your APK
+          name: recompiled-apk
+          path: recompiled.apk
         env:
           GITHUB_TOKEN: ${{ secrets.TK }}
