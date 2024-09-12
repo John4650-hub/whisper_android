@@ -1,7 +1,7 @@
 name: Build Android Project
 
 on:
-  pull_request:
+  push:
     branches:
       - main  # Change this to your default branch if different
 
