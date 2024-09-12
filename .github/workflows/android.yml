@@ -3,7 +3,7 @@ name: Build and Decompile APK
 on:
   push:
     branches: 
-      - Master
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
