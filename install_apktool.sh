@@ -5,9 +5,9 @@ set -e
 
 # Install Apktool
 echo "Installing Apktool..."
-curl -O https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool
-chmod +x apktool
-sudo mv apktool /usr/local/bin/
+curl -O https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool.jar
+chmod +x apktool.jar
+sudo mv apktool.jar /usr/local/bin/
 
 # Install Java if not already installed (required for Apktool)
 if ! command -v java &> /dev/null; then
